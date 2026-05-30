@@ -1,0 +1,44 @@
+llm:
+  provider: openai
+  model: gpt-4o
+  temperature: 0.7
+  max_tokens: 4096
+  timeout: 60
+
+memory:
+  type: buffer
+  max_tokens: 8192
+  summary_threshold: 2048
+
+tools:
+  enabled:
+    - web_search
+    - web_fetch
+    - code_executor
+    - file_ops
+    - shell_commands
+  sandbox:
+    enabled: true
+    timeout: 30
+    allowed_commands:
+      - python
+      - node
+      - pip
+
+agent:
+  max_iterations: 25
+  max_tool_calls_per_step: 3
+  verbose: true
+  handle_errors: resilient
+
+logging:
+  level: INFO
+  format: structured
+  output: console
+
+api:
+  host: 0.0.0.0
+  port: 8000
+  cors_origins:
+    - http://localhost:3000
+    - http://localhost:5173
