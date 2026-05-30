@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./config:/app/config
+    command: ["serve", "--host", "0.0.0.0", "--port", "8000"]
+
+  cli:
+    build: .
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OLLAMA_URL=http://ollama:11434
+    volumes:
+      - ./config:/app/config
+      - ./examples:/app/examples
+    stdin_open: true
+    tty: true
+    command: ["chat"]
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  ollama_data:
