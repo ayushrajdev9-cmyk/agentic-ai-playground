@@ -6,6 +6,7 @@ from agentic.llm.openai import OpenAIChat
 from agentic.llm.ollama import OllamaChat
 from agentic.memory.buffer import BufferMemory
 from agentic.memory.summary import SummaryMemory
+from agentic.memory.vector import VectorMemory
 from agentic.tools.web import WebSearchTool, WebFetchTool
 from agentic.tools.code import CodeExecutorTool
 from agentic.tools.files import FileOpsTool
@@ -22,6 +23,7 @@ __all__ = [
     "OllamaChat",
     "BufferMemory",
     "SummaryMemory",
+    "VectorMemory",
     "WebSearchTool",
     "WebFetchTool",
     "CodeExecutorTool",
