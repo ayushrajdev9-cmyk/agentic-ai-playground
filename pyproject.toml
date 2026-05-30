@@ -27,10 +27,14 @@ dev = [
 openai = ["openai>=1.0"]
 ollama = ["ollama>=0.1"]
 all = ["agentic-ai-playground[openai,ollama,dev]"]
+server = ["fastapi>=0.110", "uvicorn>=0.27"]
+
+[project.scripts]
+agentic = "agentic.cli:main"
 
 [project.urls]
-homepage = "https://github.com/yourusername/agentic-ai-playground"
-repository = "https://github.com/yourusername/agentic-ai-playground"
+homepage = "https://github.com/ayushrajdev9-cmyk/agentic-ai-playground"
+repository = "https://github.com/ayushrajdev9-cmyk/agentic-ai-playground"
 
 [tool.ruff]
 line-length = 100
