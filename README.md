@@ -1,27 +1,19 @@
-# Agentic AI Playground
+# Agentic AI Playground 🤖
 
-Build, test, and deploy AI agents with modular tooling, memory systems, and LLM integrations.
+**The fastest way to build, test, and deploy AI agents.** ReAct patterns, multi-agent orchestration, pluggable LLMs, and a rich tool system — all in one modular framework.
 
-[![CI](https://github.com/yourusername/agentic-ai-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/agentic-ai-playground/actions/workflows/ci.yml)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-## Features
-
-- **Modular Agent Architecture** — ReAct, Tool-using, and custom agent patterns
-- **Pluggable LLM Backends** — OpenAI, Ollama, Anthropic, and custom providers
-- **Rich Tool System** — Web search, code execution, file operations, API calls
-- **Memory Systems** — Buffer, summary, vector, and persistent memory
-- **Multi-Agent Orchestration** — Delegate, debate, and collaborate patterns
-- **Observability** — Built-in logging, tracing, and metrics
-
-## Quick Start
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.11%2B-blue?style=flat-square" alt="Python">
+  <img src="https://img.shields.io/badge/license-MIT-yellow?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/agents-ReAct%20%7C%20Tool%20%7C%20Custom-brightgreen?style=flat-square" alt="Agent Types">
+  <img src="https://img.shields.io/badge/LLM-OpenAI%20%7C%20Ollama%20%7C%20Any-purple?style=flat-square" alt="LLM Support">
+</p>
 
 ```bash
 pip install agentic-ai-playground
 
-# or from source
-git clone https://github.com/yourusername/agentic-ai-playground.git
+# Or from source
+git clone https://github.com/ayushrajdev9-cmyk/agentic-ai-playground.git
 cd agentic-ai-playground
 pip install -e ".[dev]"
 ```
@@ -93,6 +85,31 @@ team = ResearchTeam(
 )
 
 report = team.run("Latest breakthroughs in AI agents")
+```
+
+## Demo
+
+```python
+from agentic import ReActAgent, OpenAIChat, WebSearchTool, BufferMemory
+
+agent = ReActAgent(
+    llm=OpenAIChat(model="gpt-4o"),
+    tools=[WebSearchTool()],
+    memory=BufferMemory(),
+)
+
+# Single query
+result = await agent.run("Research the latest AI agent frameworks and compare them")
+
+# Interactive chat
+response = await agent.chat("What did we find about LangChain vs CrewAI?")
+```
+
+Or from the CLI:
+```bash
+agentic chat --tools web_search
+agentic run "Explain quantum computing in simple terms" --tools web_search
+agentic serve --port 8000
 ```
 
 ## Configuration
